@@ -1,24 +1,23 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
-import { PATH } from '@/lib/constants/path';
 const routes = [
   {
-    path: PATH.HOME,
+    path: '',
     element: <Home />,
   },
   {
-    path: PATH.LOGIN,
+    path: '/login',
     element: <Login />,
   },
   {
-    path: PATH.SIGNUP,
+    path: '/signup',
     element: <SignUp />,
   },
   {
-    path: PATH.USER_PROFILE,
+    path: '/userprofile',
     element: <UserProfile />,
   },
   {
-    path: PATH.NOT_FOUND,
+    path: '*',
     element: <NotFound />,
   },
 ];
