@@ -15,7 +15,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #f6f6f6;
+}
+
 #root {
-  height: 100vh;
-  background-color: #ffffff;
 }

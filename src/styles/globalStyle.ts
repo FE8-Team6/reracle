@@ -21,10 +21,6 @@ ${reset}
 body {
   font-family: "Noto Sans KR", sans-serif;
   background-color: #f6f6f6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 `;
