@@ -15,7 +15,7 @@ export const WasteCategory = () => {
         <FaSearch />
         <SearchBar />
       </div>
-      <hr className="w-[46vh] h-px my-[3vh]  mx-auto" />
+      <div className="w-[46vh] h-px my-[3vh] bg-purple mx-auto" />
       <h2 className="text-[2.3vh] font-bold text-purple mt-[0.6vh] ml-[5vh]">재활용품 분류</h2>
       <SlCarousel pagination mouse-dragging className="w-[46vh] h-[60vh] mx-auto">
         {chunkedCategories.map((chunk, index) => (

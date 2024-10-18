@@ -4,102 +4,10 @@ import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
-import styled from 'styled-components';
 import { PurpleButton, WhiteButton } from '@/components/Buttons';
 import loginPageImg from '../assets/images/loginPageImg.png';
 import { MdAlternateEmail, MdOutlinePassword } from 'react-icons/md';
-import PageHeader from '@/components/PageHeader';
-
-const Container = styled.section`
-  width: 56.3vh;
-  height: 79.7vh;
-  background-color: var(--color-white);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2vh;
-  overflow-y: hidden;
-`;
-const ImgContainer = styled.img`
-  width: 20vh;
-  padding: 5vh;
-`;
-const LoginFrom = styled.form`
-  width: 46vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-`;
-const InputContainer = styled.div`
-  display: flex;
-  position: relative;
-`;
-const TextInput = styled.input`
-  width: 46vh;
-  height: 6vh;
-  border: 1px solid var(--color-purple);
-  border-radius: 1vh;
-  margin-bottom: 1vh;
-  padding-left: 5vh;
-  box-sizing: border-box;
-  font-size: 2vh;
-`;
-const EmailLabel = styled(MdAlternateEmail)`
-  position: absolute;
-  left: 1.5vh;
-  top: 1.8vh;
-  font-size: 2.5vh;
-  color: var(--color-purple);
-`;
-const PwLabel = styled(MdOutlinePassword)`
-  position: absolute;
-  left: 1.5vh;
-  top: 1.8vh;
-  font-size: 2.5vh;
-  color: var(--color-purple);
-`;
-const LinkContainer = styled.div`
-  width: 46vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-const LinkButton = styled(WhiteButton)`
-  &:first-child {
-    margin-right: 1vh;
-  }
-`;
-const ErrorMessage = styled.p`
-  position: absolute;
-  bottom: 7.5vh;
-  animation: vibration 0.1s;
-  @keyframes vibration {
-    0% {
-      transform: translateX(0);
-      color: var(--color-gray-dark);
-    }
-    25% {
-      transform: translateX(-5px);
-      ccolor: #7e3f46;
-    }
-    50% {
-      transform: translateX(5px);
-      color: #be3f46;
-    }
-    75% {
-      transform: translateX(-5px);
-      color: #ff3f46;
-    }
-    100% {
-      transform: translateX(0);
-      color: var(--color-red);
-    }
-  }
-`;
+import LoginToSignUpTitle from '@/components/LoginToSignUpTitle';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -127,7 +35,7 @@ export const Login = () => {
             nickname: userData.nickname,
           }),
         );
-        navigate('/'); // 로그인 후 이동할 페이지
+        navigate('/');
       } else {
         setError('사용자 데이터를 찾을 수 없습니다.');
       }
@@ -138,36 +46,40 @@ export const Login = () => {
 
   return (
     <Layout>
-      <PageHeader title="로그인" />
-      <Container>
-        <ImgContainer src={loginPageImg} alt="" />
-        <LoginFrom onSubmit={handleLogin}>
-          <InputContainer>
-            <TextInput
+      <LoginToSignUpTitle title="로그인" />
+      <section className="w-[56.3vh] h-[79.7vh] bg-white relative flex flex-col justify-center items-center gap-[2vh] overflow-hidden">
+        <img src={loginPageImg} alt="" className="w-[20vh] p-[5vh]" />
+        <form onSubmit={handleLogin} className="w-[46vh] flex flex-col justify-center items-center relative">
+          <div className="relative flex">
+            <input
               type="text"
               placeholder="email@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="w-[46vh] h-[6vh] border border-purple rounded-[1vh] mb-[1vh] pl-[5vh] box-border text-[2vh]"
             />
-            <EmailLabel />
-          </InputContainer>
-          <InputContainer>
-            <TextInput
+            <MdAlternateEmail className="absolute left-[1.5vh] top-[1.8vh] text-[2.5vh] text-purple" />
+          </div>
+          <div className="relative flex">
+            <input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="w-[46vh] h-[6vh] border border-purple rounded-[1vh] mb-[1vh] pl-[5vh] box-border text-[2vh]"
             />
-            <PwLabel />
-          </InputContainer>
-          {error && <ErrorMessage>{error}</ErrorMessage>}
+            <MdOutlinePassword className="absolute left-[1.5vh] top-[1.8vh] text-[2.5vh] text-purple" />
+          </div>
+          {error && <p className="absolute bottom-[7.5vh] animate-vibration text-gray-dark">{error}</p>}
           <PurpleButton type="submit">로그인</PurpleButton>
-        </LoginFrom>
-        <LinkContainer>
-          <LinkButton onClick={() => navigate('/pwreset')}>비밀번호 재설정</LinkButton>
-          <LinkButton onClick={() => navigate('/signup')}>회원가입</LinkButton>
-        </LinkContainer>
-      </Container>
+        </form>
+        <div className="w-[46vh] flex justify-between items-center">
+          <WhiteButton onClick={() => navigate('/pwreset')} className="mr-[1vh]">
+            비밀번호 재설정
+          </WhiteButton>
+          <WhiteButton onClick={() => navigate('/signup')}>회원가입</WhiteButton>
+        </div>
+      </section>
     </Layout>
   );
 };

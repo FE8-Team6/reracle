@@ -1,70 +1,8 @@
-import styled from 'styled-components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { GoChevronLeft } from 'react-icons/go';
 import { wasteCategories } from '@/lib/constants/wasteCategories';
 import { Layout } from './layout/Layout';
 import { wasteCategoryItemsImages } from '@/lib/constants/wasteCategoryItemsImages';
-
-const Container = styled.div`
-  width: 100%;
-  height: 530px;
-  background-color: var(--color-white);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  overflow-y: auto;
-`;
-const HorizontalLine = styled.div`
-  width: 46vh;
-  height: 1px;
-  margin: 3vh auto 0.1vh;
-  background-color: var(--color-purple);
-`;
-const CategoryText = styled.span`
-  font-size: 2.3vh;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-purple);
-  margin-top: 0.6vh;
-  margin-left: 5vh;
-`;
-const Text = styled.p`
-  width: 46vh;
-  margin: 3vh auto;
-  line-height: 3.2vh;
-  font-size: 2.2vh;
-  font-weight: var(--font-weight-regular);
-`;
-const ImageWrapper = styled.div`
-  width: 46vh;
-  height: 23vh;
-  background-color: var(--color-purple-light);
-  border-radius: 14px;
-  display: flex;
-  margin: 3vh auto 1vh;
-  justify-content: center;
-  align-items: center;
-`;
-const ImageContainer = styled.img`
-  max-width: 40%;
-  height: auto;
-  object-fit: contain;
-`;
-
-const StyledGoBackBtn = styled.button`
-  position: absolute;
-  margin-top: 2.4vh;
-  margin-left: 0.3vh;
-  height: 5.5vh;
-  width: 5.5vh;
-  background-color: transparent;
-  border: none;
-  display: flex;
-  font-size: 5.5vh;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`;
 
 const DetailItems = () => {
   const navigate = useNavigate();
@@ -88,21 +26,29 @@ const DetailItems = () => {
 
   return (
     <Layout>
-      <Container>
-        <StyledGoBackBtn onClick={handleGoBack}>
+      <div className="w-full h-[530px] bg-white relative flex flex-col justify-center overflow-y-auto">
+        <button
+          onClick={handleGoBack}
+          className="absolute mt-[2.4vh] ml-[0.3vh] h-[5.5vh] w-[5.5vh] bg-transparent border-none flex justify-center items-center text-[5.5vh] cursor-pointer">
           <GoChevronLeft />
-        </StyledGoBackBtn>
-        <HorizontalLine />
-        <CategoryText>{item.name}</CategoryText>
+        </button>
+        <div className="w-[46vh] h-px my-[3vh] bg-purple mx-auto" />
+        <span className="text-[2.3vh] font-bold text-purple mt-[0.6vh] ml-[5vh]">{item.name}</span>
         {item.img && (
-          <ImageWrapper>
-            <ImageContainer src={wasteCategoryItemsImages[item.img]} alt={item.name} />
-          </ImageWrapper>
+          <div className="w-[46vh] h-[23vh] bg-purpleLight rounded-lg flex justify-center items-center my-[3vh] mx-auto">
+            <img
+              src={wasteCategoryItemsImages[item.img]}
+              alt={item.name}
+              className="max-w-[40%] h-auto object-contain"
+            />
+          </div>
         )}
-        <HorizontalLine />
-        <CategoryText>배출방법</CategoryText>
-        <Text>{item.disposalMethod}</Text>
-      </Container>
+        <div className="w-[46vh] h-px my-[3vh] bg-purple mx-auto" />
+        <span className="text-[2.3vh] font-bold text-purple mt-[0.6vh] ml-[5vh]">배출방법</span>
+        <p className="w-[46vh] my-[3vh] leading-[3.2vh] text-[2.2vh] font-regular mx-auto">
+          {item.disposalMethod}
+        </p>
+      </div>
     </Layout>
   );
 };

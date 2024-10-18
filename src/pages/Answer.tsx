@@ -86,7 +86,7 @@ const QuestionBox = styled.p`
   font-weight: bold;
 `;
 
-export const Answer: React.FC = () => {
+export const Answer = () => {
   const location = useLocation();
   const question = location.state?.question || '';
 

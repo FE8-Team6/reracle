@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 
-export const HEADER_HEIGHT = 6.3;
-
 const Header = () => {
   const navigation = useNavigate();
   const handleNavClick = (path: string) => {

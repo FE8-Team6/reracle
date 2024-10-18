@@ -4,7 +4,7 @@ import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import styled from 'styled-components';
-import PageHeader from '@/components/PageHeader';
+import LoginToSignUpTitle from '@/components/LoginToSignUpTitle';
 import { MdAlternateEmail } from 'react-icons/md';
 import { PurpleButton, WhiteButton } from '@/components/Buttons';
 
@@ -108,7 +108,7 @@ export const PasswordReset = () => {
 
   return (
     <Layout>
-      <PageHeader title="비밀번호 재설정" />
+      <LoginToSignUpTitle title="비밀번호 재설정" />
       <Container>
         <PwResetFrom onSubmit={handlePasswordReset}>
           <InputContainer>

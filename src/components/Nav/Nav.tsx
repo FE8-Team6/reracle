@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import NavBtn from '@/components/Nav/NavBtn';
 
-const NAV_HEIGHT = 10.2;
-
 const Nav = () => {
   const navigation = useNavigate();
 

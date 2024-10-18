@@ -1,46 +1,7 @@
-import styled from 'styled-components';
 import React, { useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
 
-const HeaderTopic = styled.div`
-  width: 56.3vh;
-  height: 3.75vh;
-  background: #fcd118;
-  color: #9747ff;
-  text-align: center;
-  align-content: center;
-  line-height: 3.75vh;
-  font-size: 2vh;
-`;
-
-interface TopicContentProps {
-  isExpanded: boolean;
-}
-
-const TopicContent = styled.div<TopicContentProps>`
-  margin: 1.5vh auto;
-  width: 50vh;
-  height: ${({ isExpanded }) => (isExpanded ? 'auto' : '3.75vh')};
-  background: ${({ isExpanded }) => (isExpanded ? '#9747ff' : '#fef3c1')};
-  border-radius: 14.31px;
-  text-align: center;
-  align-content: center;
-  font-size: 13.6px;
-  font-weight: bold;
-  color: ${({ isExpanded }) => (isExpanded ? 'white' : 'black')};
-  cursor: pointer;
-  transition: background 0.3s ease, height 0.3s ease;
-  line-height: 3.75vh;
-  overflow: hidden;
-`;
-
-interface TopicItemProps {
-  date: string;
-  time: string;
-  details: string;
-}
-
-const TopicItem: React.FC<TopicItemProps> = ({ date, time, details }) => {
+const TopicItem = ({ date, time, details }: { date: string; time: string; details: string }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggle = () => {
@@ -48,7 +9,11 @@ const TopicItem: React.FC<TopicItemProps> = ({ date, time, details }) => {
   };
 
   return (
-    <TopicContent isExpanded={isExpanded} onClick={handleToggle}>
+    <div
+      className={`my-[1.5vh] mx-auto w-[50vh] ${
+        isExpanded ? 'h-auto bg-[#9747ff] text-white' : 'h-[5.75vh] bg-[#fef3c1] text-black '
+      } rounded-xl text-center pt-4 font-bold text-sm cursor-pointer  transition-all duration-300 ease-in-out overflow-hidden`}
+      onClick={handleToggle}>
       {date} {time} 점검 예정입니다.
       {isExpanded && (
         <div>
@@ -56,14 +21,16 @@ const TopicItem: React.FC<TopicItemProps> = ({ date, time, details }) => {
           {details}
         </div>
       )}
-    </TopicContent>
+    </div>
   );
 };
 
-export const Topic: React.FC = () => {
+export const Topic = () => {
   return (
     <Layout>
-      <HeaderTopic>공지사항</HeaderTopic>
+      <div className="w-[56.3vh] h-[3.75vh] bg-[#fcd118] text-[#9747ff] text-center align-center leading-[3.75vh] text-[2vh]">
+        공지사항
+      </div>
       <TopicItem
         date="2024-05-03"
         time="09:00 ~ 10:00 (1시간)"
