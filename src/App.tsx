@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -10,13 +9,6 @@ import Loading from './pages/Loading';
 setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/');
 
 const router = createBrowserRouter(routes);
-
-const StyledAppContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-white);
-  position: relative;
-`;
 
 const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -30,9 +22,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <StyledAppContainer>
-        <RouterProvider router={router} />
-      </StyledAppContainer>
+      <RouterProvider router={router} />
       {/* <StyledAppContainer>{isLoading ? <Loading /> : <RouterProvider router={router} />}</StyledAppContainer> */}
     </>
   );

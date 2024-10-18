@@ -1,8 +1,7 @@
 import Header from '@/components/Header';
 import Nav from '@/components/Nav/Nav';
-import { LayoutProps } from '@/lib/types/LayoutProps';
 
-export const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Header />

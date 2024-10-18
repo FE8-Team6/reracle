@@ -1,61 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import { wasteCategories } from '@/lib/constants/wasteCategories';
 import { useSearchStore } from '@/lib/store/useSearchStore';
 
-const StyledSearchContainer = styled.div`
-  position: relative;
-  width: 37vh;
-`;
-
-const StyledSearchInput = styled.input`
-  width: 37vh;
-  height: 5vh;
-  font-size: 2vh;
-  border: none;
-  font-family: var(--font-weight-medium);
-  color: var(--color-gray-dark);
-  &:focus {
-    outline: none;
-    box-shadow: none;
-  }
-`;
-
-const ResultsContainer = styled.ul`
-  position: absolute;
-  width: 37vh;
-  height: auto;
-  top: 5vh;
-  list-style: none;
-  margin-top: 1vh;
-  background-color: #ffffff;
-  border: 1px solid var(--color-purple);
-  border-radius: 0.5vh;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-`;
-
-const ResultItem = styled.li`
-  padding: 1.2vh;
-  font-size: 2vh;
-  cursor: pointer;
-  &:hover {
-    background-color: #f0f0f0;
-  }
-`;
+type SearchResults = {
+  categoryId: string;
+  id: string;
+  name: string;
+  img?: string;
+  disposalMethod?: string;
+}[];
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [searchResults, setSearchResults] = useState<
-    {
-      categoryId: string;
-      id: string;
-      name: string;
-      img?: string;
-      disposalMethod?: string;
-    }[]
-  >([]);
+  const [searchResults, setSearchResults] = useState<SearchResults>([]);
 
   const resultContainerRef = useRef<HTMLUListElement | null>(null);
   const addSearchHistory = useSearchStore((state) => state.addSearchHistory);
@@ -107,25 +65,31 @@ const SearchBar = () => {
   };
 
   return (
-    <StyledSearchContainer>
+    <div className="relative w-[37vh]">
       <form onSubmit={handleSubmit}>
-        <StyledSearchInput
+        <input
           type="text"
           value={searchQuery}
           onChange={handleSearch}
           placeholder="검색어를 입력하세요"
+          className="w-[37vh] h-[5vh] text-[2vh] font-medium text-gray-700 focus:outline-none focus:shadow-none"
         />
       </form>
       {searchResults.length > 0 && (
-        <ResultsContainer ref={resultContainerRef}>
+        <ul
+          ref={resultContainerRef}
+          className="absolute w-[37vh] top-[5vh] mt-[1vh] bg-white border border-purple-600 rounded-[0.5vh] shadow-lg z-10">
           {searchResults.map((item) => (
-            <ResultItem key={item.id} onClick={() => handleItemClick(item.categoryId, item.id, item.name)}>
+            <li
+              key={item.id}
+              onClick={() => handleItemClick(item.categoryId, item.id, item.name)}
+              className="p-[1.2vh] text-[2vh] cursor-pointer hover:bg-gray-200">
               {item.name}
-            </ResultItem>
+            </li>
           ))}
-        </ResultsContainer>
+        </ul>
       )}
-    </StyledSearchContainer>
+    </div>
   );
 };
 

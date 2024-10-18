@@ -10,7 +10,7 @@ export const WasteCategory = () => {
   const chunkedCategories = chunkArray(wasteCategories, 9);
 
   return (
-    <section className="w-[56.3vh] h-[79.7vh] flex flex-col justify-center overflow-y-auto">
+    <section className="w-[56.3vh] h-[76.7vh] flex flex-col justify-center overflow-y-auto">
       <div className="flex items-center rounded-[2vh] border border-purple-600 gap-[1.5vh] px-[2.5vh] mx-auto">
         <FaSearch />
         <SearchBar />
@@ -19,7 +19,7 @@ export const WasteCategory = () => {
       <h2 className="text-[2.3vh] font-bold text-purple-600 mt-[0.6vh] ml-[5vh]">재활용품 분류</h2>
       <SlCarousel pagination mouse-dragging className="w-[46vh] h-[60vh] mx-auto">
         {chunkedCategories.map((chunk, index) => (
-          <SlCarouselItem key={index} className="mb-[1vh]">
+          <SlCarouselItem key={index} className="mb-7">
             <div className="grid grid-cols-3 gap-y-[1.5vh] w-[45vh] mt-[2vh]">
               {chunk.map((category) => (
                 <NavLink key={category.id} to={`/${category.id}`} className="text-gray-800 no-underline">
@@ -32,7 +32,7 @@ export const WasteCategory = () => {
                       />
                     )}
                   </div>
-                  <p className="text-base font-medium mt-1 text-center">{category.name}</p>
+                  <p className="mt-1 text-base font-medium text-center">{category.name}</p>
                 </NavLink>
               ))}
             </div>
