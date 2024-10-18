@@ -1,8 +1,9 @@
-import { Home, Login, NotFound, SignUp, Qna, Answer, PasswordReset, MyQuestion } from '@/pages';
+import { Home, Login, NotFound, SignUp } from '@/pages';
 import WasteCategoryItems from '@/components/WasteCategoryItems';
 import MyPage from '@/components/MyPage/MyPage';
 import DetailItems from '@/components/DetailItems';
 import { Topic } from '@/pages/Topic';
+import { PasswordReset } from '@/pages/PasswordReset';
 
 export const routes = [
   {

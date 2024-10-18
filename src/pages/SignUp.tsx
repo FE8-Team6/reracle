@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -132,10 +131,4 @@ export const SignUp = () => {
       </section>
     </Layout>
   );
-=======
-import React from 'react';
-
-export const SignUp = () => {
-  return <div>SignUp</div>;
->>>>>>> 1861f649ba827c05579b89e005037b780482f620
 };
