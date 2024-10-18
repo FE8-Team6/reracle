@@ -14,18 +14,18 @@ const Header = () => {
     }
   };
   return (
-    <div className="w-[56.3vh] h-[6.3vh] bg-purpleLight rounded-t-lg flex items-center relative">
+    <div className="w-full h-[3rem] bg-purpleLight rounded-t-lg flex items-center">
       <img
         src="/logosmall.svg"
-        alt="logo"
+        alt="reracle 아이콘"
         onClick={() => handleNavClick('/')}
-        className="w-[10vh] absolute ml-[3vh] cursor-pointer"
+        className="w-[5rem] absolute ml-4 cursor-pointer"
       />
       <img
         src="/person_20dp_FILL1_wght400_GRAD0_opsz20.svg"
-        alt="user"
+        alt="유저 아이콘"
         onClick={handleUserIconClick}
-        className="w-[3.5vh] absolute right-0 mr-[3vh] cursor-pointer"
+        className="w-[2rem] absolute right-0 mr-4 cursor-pointer"
       />
     </div>
   );
