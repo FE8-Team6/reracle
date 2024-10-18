@@ -25,33 +25,6 @@ export const routes = [
     path: '*',
     element: <NotFound />,
   },
-  {
-    path: '/:categoryId',
-    element: <WasteCategoryItems />,
-  },
-  {
-    path: '/:categoryId/:itemId',
-    element: <DetailItems />,
-  },
-  {
-    path: 'qna',
-    element: <Qna />,
-  },
-  {
-    path: 'topic',
-    element: <Topic />,
-  },
-  {
-    path: 'answer/:questionIndex',
-    element: <Answer />,
-  },
-  {
-    path: 'mypage',
-    element: <MyPage />,
-  },
-
-  {
-    path: 'myquestion',
-    element: <MyQuestion />,
-  },
 ];
+
+export default routes;

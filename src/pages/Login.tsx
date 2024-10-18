@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
@@ -81,5 +82,14 @@ export const Login = () => {
         </div>
       </section>
     </Layout>
+=======
+import React from 'react';
+
+export const Login = () => {
+  return (
+    <>
+      <h1>login</h1>
+    </>
+>>>>>>> 1861f649ba827c05579b89e005037b780482f620
   );
 };
