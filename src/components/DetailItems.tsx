@@ -26,7 +26,7 @@ const DetailItems = () => {
 
   return (
     <Layout>
-      <div className="w-full h-[530px] bg-white relative flex flex-col justify-center overflow-y-auto">
+      <div className="w-[56.3vh] h-[13.95vh] fixed bottom-0">
         <button
           onClick={handleGoBack}
           className="absolute mt-[2.4vh] ml-[0.3vh] h-[5.5vh] w-[5.5vh] bg-transparent border-none flex justify-center items-center text-[5.5vh] cursor-pointer">

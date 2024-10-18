@@ -65,7 +65,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="relative w-[37vh]">
+    <div className=" w-[37vh]">
       <form onSubmit={handleSubmit}>
         <input
           type="text"

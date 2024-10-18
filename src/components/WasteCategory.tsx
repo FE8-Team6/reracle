@@ -10,7 +10,7 @@ export const WasteCategory = () => {
   const chunkedCategories = chunkArray(wasteCategories, 9);
 
   return (
-    <section className="w-[56.3vh] h-[76.7vh] flex flex-col justify-center overflow-y-auto">
+    <section className="w-full h-[76.7vh] flex flex-col justify-center overflow-y-auto">
       <div className="flex items-center rounded-[2vh] border border-purple-600 gap-[1.5vh] px-[2.5vh] mx-auto">
         <FaSearch />
         <SearchBar />

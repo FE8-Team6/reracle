@@ -20,8 +20,7 @@ const App = () => {
 
   return (
     <>
-      {/* <GlobalStyles /> */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col w-full max-w-[440px] h-full max-h-[920px] bg-white">
+      <div className="absolute top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2 flex flex-col w-full max-w-[440px] h-full max-h-[920px] bg-white">
         <RouterProvider router={router} />
       </div>
       {/* <StyledAppContainer>{isLoading ? <Loading /> : <RouterProvider router={router} />}</StyledAppContainer> */}

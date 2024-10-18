@@ -2,7 +2,7 @@ import { NavBtnTypes } from '@/lib/types/navBtnTypes';
 
 const NavBtn = ({ image, text, onClick }: NavBtnTypes) => {
   return (
-    <div className="w-[7vh] h-[6.8vh] relative flex items-center cursor-pointer">
+    <div className="relative flex items-center w-auto h-auto cursor-pointer">
       <button
         onClick={onClick}
         className="cursor-pointer border-none w-[8vh] bg-transparent flex flex-col items-center">
