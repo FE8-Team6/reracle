@@ -15,15 +15,15 @@ export const WasteCategory = () => {
         <FaSearch />
         <SearchBar />
       </div>
-      <hr className="w-[46vh] h-px my-[3vh] bg-purple-600 mx-auto" />
-      <h2 className="text-[2.3vh] font-bold text-purple-600 mt-[0.6vh] ml-[5vh]">재활용품 분류</h2>
+      <hr className="w-[46vh] h-px my-[3vh]  mx-auto" />
+      <h2 className="text-[2.3vh] font-bold text-purple mt-[0.6vh] ml-[5vh]">재활용품 분류</h2>
       <SlCarousel pagination mouse-dragging className="w-[46vh] h-[60vh] mx-auto">
         {chunkedCategories.map((chunk, index) => (
           <SlCarouselItem key={index} className="mb-7">
             <div className="grid grid-cols-3 gap-y-[1.5vh] w-[45vh] mt-[2vh]">
               {chunk.map((category) => (
                 <NavLink key={category.id} to={`/${category.id}`} className="text-gray-800 no-underline">
-                  <div className="bg-yellow-100 w-3/4 h-[6rem] flex justify-center items-center rounded-lg mx-auto hover:bg-yellow-300 cursor-pointer">
+                  <div className="bg-yellowLight w-3/4 h-[6rem] flex justify-center items-center rounded-lg mx-auto hover:bg-yellow cursor-pointer">
                     {category.img && (
                       <img
                         src={wasteCategoryImages[category.img]}

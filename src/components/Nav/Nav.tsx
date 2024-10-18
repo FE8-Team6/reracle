@@ -1,58 +1,7 @@
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import NavBtn from '@/components/Nav/NavBtn';
 
-const Container = styled.div`
-  width: 56.3vh;
-  height: 13.95vh;
-  position: fixed;
-  bottom: 0;
-`;
-const StyledNotice = styled.div`
-  width: 56.3vh;
-  height: 3.75vh;
-  position: absolute;
-  border-top: 1px solid var(--color-purple);
-  border-bottom: 1px solid var(--color-purple);
-  background-color: var(--color-purple-light);
-  font-size: 1.5vh;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-purple);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &::before {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    width: 5vh;
-    height: 5vh;
-    margin-right: 10px;
-    background: url('/campaign_20dp_FILL0_wght300_GRAD0_opsz20.svg') no-repeat center center;
-  }
-`;
-export const NAV_HEIGHT = 10.2;
-const StyledNavbar = styled.div`
-  width: 56.3vh;
-  height: ${NAV_HEIGHT}vh;
-  position: absolute;
-  bottom: 0;
-  background-color: var(--color-green);
-  border-radius: 0 0 14px 14px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  // width: 375px;
-  // height: 68px;
-  // position: absolute;
-  // top: 27px;
-  // background-color: var(--color-green);
-  // border-radius: 0 0 14px 14px;
-  // display: flex;
-  // justify-content: space-evenly;
-`;
+const NAV_HEIGHT = 10.2;
 
 const Nav = () => {
   const navigation = useNavigate();
@@ -62,9 +11,12 @@ const Nav = () => {
   };
 
   return (
-    <Container>
-      <StyledNotice>2024-05-03 09:00 ~ 10:00 (1시간) 점검 예정입니다.</StyledNotice>
-      <StyledNavbar>
+    <div className="w-[56.3vh] h-[13.95vh] fixed bottom-0">
+      <div className="w-[56.3vh] h-[3.75vh] absolute border-t border-b border-purple bg-purpleLight text-[1.5vh] font-bold text-purple flex justify-center items-center">
+        <span className="inline-block align-middle w-[5vh] h-[5vh] mr-2.5 bg-[url('/campaign_20dp_FILL0_wght300_GRAD0_opsz20.svg')] bg-no-repeat bg-center"></span>
+        2024-05-03 09:00 ~ 10:00 (1시간) 점검 예정입니다.
+      </div>
+      <div className="w-[56.3vh] h-[10.2vh] absolute bottom-0 bg-green rounded-b-lg flex justify-evenly items-center">
         <NavBtn image="/home_FILL0_wght400_GRAD0_opsz24.svg" text="홈" onClick={() => handleNavClick('/')} />
         <NavBtn
           image="/question_exchange_FILL0_wght400_GRAD0_opsz24.svg"
@@ -76,8 +28,8 @@ const Nav = () => {
           text="게시판"
           onClick={() => handleNavClick('/topic')}
         />
-      </StyledNavbar>
-    </Container>
+      </div>
+    </div>
   );
 };
 

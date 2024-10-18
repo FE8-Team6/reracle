@@ -1,29 +1,6 @@
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 export const HEADER_HEIGHT = 6.3;
-const Headbar = styled.div`
-  width: 56.3vh;
-  height: ${HEADER_HEIGHT}vh;
-  background-color: var(--color-purple-light);
-  border-radius: 14px 14px 0 0;
-  display: flex;
-  align-items: center;
-  position: relative;
-`;
-const Logo = styled.img`
-  width: 10vh;
-  position: absolute;
-  margin-left: 3vh;
-  cursor: pointer;
-`;
-const UserIcon = styled.img`
-  width: 3.5vh;
-  position: absolute;
-  right: 0;
-  margin-right: 3vh;
-  cursor: pointer;
-`;
 
 const Header = () => {
   const navigation = useNavigate();
@@ -39,10 +16,20 @@ const Header = () => {
     }
   };
   return (
-    <Headbar>
-      <Logo src="/logosmall.svg" alt="logo" onClick={() => handleNavClick('/')} />
-      <UserIcon src="/person_20dp_FILL1_wght400_GRAD0_opsz20.svg" alt="user" onClick={handleUserIconClick} />
-    </Headbar>
+    <div className="w-[56.3vh] h-[6.3vh] bg-purpleLight rounded-t-lg flex items-center relative">
+      <img
+        src="/logosmall.svg"
+        alt="logo"
+        onClick={() => handleNavClick('/')}
+        className="w-[10vh] absolute ml-[3vh] cursor-pointer"
+      />
+      <img
+        src="/person_20dp_FILL1_wght400_GRAD0_opsz20.svg"
+        alt="user"
+        onClick={handleUserIconClick}
+        className="w-[3.5vh] absolute right-0 mr-[3vh] cursor-pointer"
+      />
+    </div>
   );
 };
 
